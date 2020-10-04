@@ -1,0 +1,134 @@
+* {
+	text-decoration: none;
+	font-family: 'Heebo', sans-serif;
+}
+
+body {
+	margin: 0px;
+	background: #F7F2E5;
+}
+
+/* Navigation Bar */
+
+.nav-container {
+	display: flex;
+  	justify-content: space-between;
+  	align-items: center;
+  	padding: 10px 5%;
+  	background: #353835;
+  	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.search-box {
+	background: grey;
+	height: 30px; 
+	border-radius: 20px;
+	padding: 7.5px;
+}
+
+.search-box:hover > .search-txt {
+	width: 160px;
+}
+
+.search-box:hover {
+	background: #ffffff;
+}
+
+.search-box:hover > .search-btn {
+	background: white;
+	color: #353835;
+	cursor: pointer;
+}
+
+.search-btn {
+	color: white;
+	float: right;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: grey;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+}
+
+.search-txt {
+	border: none;
+	background: none;
+	outline: none;
+	float: left;
+	padding: 0;
+	color: #353835;
+	font-size: 16px;
+	transition: 0.4s;
+	line-height: 30px;
+	width: 0px;
+
+}
+
+.logo {
+	color: white;
+	font-family: Hind Madurai;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 52px;
+    letter-spacing: 0.1em;
+
+}
+
+.logo:hover {
+	cursor: pointer;
+}
+
+.bookmark_log {
+	display: flex;
+}
+
+#bookmark {
+	margin: 17px 20px;
+	font-size: 30px;
+	color: #E4572E;
+}
+
+.log {
+	list-style: none;
+	padding: 0;
+}
+
+.log li {
+  display: inline-block;
+  border-radius: 6px;
+  width: 92px;
+  height: 25px;
+  padding: 0px 7px;
+  background-color: #e4572e;
+  text-align: center;
+
+}
+
+#greylog {
+	background-color: rgba(255, 255, 255, 0.46);
+}
+
+#greylogin {
+	background-color: rgba(255, 255, 255, 0.46);
+	margin-right: 20px;
+}
+
+a {
+	color: #ffffff;
+}
+
+@media (max-width: 575px) {
+	.search-box:hover > .search-txt {
+	width: 80px;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+	.search-box:hover > .search-txt {
+	width: 120px;
+	}
+}

@@ -1,0 +1,75 @@
+{% extends "devmo/layout.html" %}
+{% load static %}
+
+{% block body %}
+<link href="{% static 'devmo/profile.css' %}" rel="stylesheet">
+<div class="profile_page_info">
+	<div class="profile_image_in_circle">
+		<div class="img">
+				<img class="user_pic" src="">
+			{% if user.is_authenticated %}
+				{% if user == profile_user %}
+				<img hidden class="plus_icon" src="">
+				{% else %}
+				<div class="follow_button">
+					<img class="plus_icon" src="">
+				</div>
+				{% endif %}
+			{% else %}
+				<div class="follow_button">
+					<img class="plus_icon" src="">
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class="profile_page_username">
+		<div class="username">
+		</div>
+	</div>
+	<div class="hr">
+		<hr id="hr_under_username">
+	</div>
+	<div class="profile_activities">
+		<div class="activities">
+			<div class="following">
+				following
+			</div>
+			<div class="followers">
+				followers
+			</div>
+		</div>
+		<div class="activities_second">
+			<div class="following_count">
+			</div>
+			<div class="followers_count">
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+{% if user.is_authenticated %}
+{% if user == profile_user %}
+<div class="header_loggedin">
+	<div class="newproject">
+		<a id="newproject_button" href="{% url 'newpost' %}">create new project</a>
+	</div>
+</div>
+{% endif %}
+{% endif %}
+<div class="projects">
+	{% for project in list %}
+		<div class="each_project">
+			<a href="{% url 'publication' publication_id=project.id %}">
+				<img src="{{ project.image }}">
+				<div class="img_back"></div>
+				<div class="project_name">
+					{{ project.title }}
+				</div>
+			</a>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}
+{% block script %}
+  <script src="{% static 'devmo/profile.js' %}"></script>
+{% endblock %}

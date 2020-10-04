@@ -1,0 +1,29 @@
+{% extends "devmo/layout.html" %}
+{% load static %}
+
+{% block body %}
+<link href="{% static 'devmo/newpost.css' %}" rel="stylesheet">
+<div class="body_inner">
+	<div class="container" id="container">
+		<div class="form">
+			<h4 class="succsess_text">Publication was created successfully</h1>
+			<h1>Create New Project</h1>
+			<input id="title" type="text" name="title" placeholder="Title">
+			<textarea id="content" required="required" placeholder="Content"></textarea>
+			<input id="image" type="text" name="image" placeholder="Image URL">
+			<select name="category" id="category">
+			  <option value="web_development">Web Development</option>
+			  <option value="java_script">Java Script</option>
+			  <option value="UI_design">UI Design</option>
+			  <option value="UX_design">UX Design</option>
+			  <option value="python">Python</option>
+			  <option value="django">Django</option>
+			</select>
+			<button  id="button" type="button" class="btn btn-outline-primary" onclick="newpost()">Create</button>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block script %}
+  <script src="{% static 'devmo/newpost.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}DevMo{% endblock %}</title>
+        <script src="https://kit.fontawesome.com/f51412c06c.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;800&display=swap" rel="stylesheet">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+        <link href="{% static 'devmo/navbar.css' %}" rel="stylesheet">
+        <div class="nav-container">
+            <a href="{% url 'index' %}">
+                <label class="logo">DevMo</label>
+            </a>
+            <form class="search-box" name="myform" method="GET" action="{% url 'search' %}">  
+                <input class="search-txt" type="text" name="search" placeholder="Search" />
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <div class="bookmark_log">
+                <a href="{% url 'view_favorites' %}"><i id="bookmark" class="far fa-bookmark"></i></a>
+                <ul class="log">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}"><li id="greylog">log out</li></a>
+                    {% else %}
+                    <a href="{% url 'login' %}"><li id="greylogin">log in</li></a>
+                    <a href="{% url 'register' %}"><li>sign up</li></a>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

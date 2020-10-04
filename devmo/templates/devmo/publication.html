@@ -1,0 +1,76 @@
+{% extends "devmo/layout.html" %}
+{% load static %}
+
+{% block body %}
+<link href="{% static 'devmo/publication.css' %}" rel="stylesheet">
+<div class="header">
+	<div class="info">
+		<div class="user_img">
+			<div class="img">
+				<a href="{% url 'profile' username=publication.user_p %}">
+					<img class="user_pic" src="{{ user_info.user_pic }}">
+				</a>
+			{% if user.is_authenticated %}
+				{% if isFollow == "your" %}
+				{% else %}
+				<div onclick="follow('{{ user_info.username }}')" class="follow_button">
+					{% if isFollow == "no" %}
+					<img class="plus_icon" src="{% static 'devmo/images/plus.png' %}">
+					{% else %}
+					<img class="plus_icon" src="{% static 'devmo/images/checkmark.png' %}">
+					{% endif %}
+				</div>
+				{% endif %}
+			{% else %}
+			<div onclick="alert_message()" class="follow_button">
+				<img class="plus_icon" src="{% static 'devmo/images/plus.png' %}">
+			</div>
+			{% endif %}
+			</div>
+		</div>
+		<div class="texts_outter">
+			<div class="project_title_outter">
+				<div class="project_title">
+					{{ publication.title }}
+				</div>
+			</div>
+			<div class="username_t">
+				<a id="username_inner" href="{% url 'profile' username=publication.user_p %}">
+					{{ publication.user_p }}
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="actions_t">
+		<ul id="ul">
+			{% if user.is_authenticated %}
+				{% if isLiked == "yes" %}
+				<li><i class="fas fa-heart" onclick="like({{ publication.id }})"></i></li>
+				{% else %}
+				<li><i class="far fa-heart" onclick="like({{ publication.id }})"></i></li>
+				{% endif %}
+				{% if isBookmarked == "yes" %}
+				<li><i id="fa-bookmark" class="fas fa-bookmark" onclick="bookmark({{ publication.id }})"></i></li>
+				{% else %}
+				<li><i id="fa-bookmark" class="far fa-bookmark" onclick="bookmark({{ publication.id }})"></i></li>
+				{% endif %}
+			{% else %}
+			<li><i class="far fa-heart" onclick="alert_message()"></i></li>
+			<li><i class="far fa-bookmark" onclick="alert_message()"></i></li>
+			{% endif %}
+		</ul>
+	</div>
+</div>
+<div class="main">
+	<div class="project_img">
+		<img id="project_img_inner" src="{{ publication.image }}">
+	</div>
+	<div class="content">
+		{{ publication.content }}
+	</div>
+</div>
+{% endblock %}
+{% block script %}
+  <script src="{% static 'devmo/publication.js' %}"></script>
+{% endblock %}

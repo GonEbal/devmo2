@@ -1,0 +1,69 @@
+{% extends "devmo/layout.html" %}
+{% load static %}
+
+{% block body %}
+<link href="{% static 'devmo/index.css' %}" rel="stylesheet">
+
+{% if user.is_authenticated %}
+<div class="header_loggedin">
+	<div class="newproject">
+		<a id="newproject_button" href="{% url 'newpost' %}">create new project</a>
+	</div>
+</div>
+{% else %}
+<div class="header_nologin">
+	<div class="header_elems">
+		<div class="hero-content">
+			<h1>ALL YOU EVER WANTED TO KNOW ABOUT TECH IN ONE PLACE</h1>
+			<a id="sign_up-nologin" href="{% url 'register' %}">sign up</a>
+		</div>
+	</div>
+	<div class="hero-image">
+		<img src="{% static 'devmo/images/1.svg' %}">
+			
+	</div>
+</div>
+{% endif %}
+<hr>
+<div class="main">
+	<div class="categories">
+		<div data-category="all" class="each_category">
+			<p>all</p>
+		</div>
+		<div data-category="web_development" class="each_category">
+			<p>web development</p>
+		</div>
+		<div data-category="java_script" class="each_category">
+			<p>java script</p>
+		</div>
+		<div data-category="UI_design" class="each_category">
+			<p>UI design</p>
+		</div>
+		<div data-category="UX_design" class="each_category">
+			<p>UX design</p>
+		</div>
+		<div data-category="python" class="each_category">
+			<p>python</p>
+		</div>
+		<div data-category="django" class="each_category">
+			<p>django</p>
+		</div>
+	</div>
+	<div class="projects">
+	{% for project in list %}
+		<div data-category="{{ project.category }}" class="each_project">
+			<a class="a_href" href="{% url 'publication' publication_id=project.id %}">
+				<img src="{{ project.image }}">
+				<div class="img_back"></div>
+				<div class="project_name">
+					{{ project.title }}
+				</div>
+			</a>
+		</div>
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}
+{% block script %}
+  <script src="{% static 'devmo/index.js' %}"></script>
+{% endblock %}
