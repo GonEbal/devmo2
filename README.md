@@ -2,6 +2,8 @@ Hello!
 I named my project DevMo. It's like BevMo, but Dev stands for Developer.
 If you have used Dribble or Behance before, this will be very familiar to you.
 
+You can check it out by clicking on the [following link](http://gonebal.pythonanywhere.com/).
+
 The Main idea is Instagram for Tech People. You have that Instagram feed, but
 instead of cute and nice selfies, you get useful posts with projects, code, new
 updates on any programming language or framework.
