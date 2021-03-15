@@ -1,6 +1,11 @@
-Hello!
-I named my project DevMo. It's like BevMo, but Dev stands for Developer.
-If you have used Dribble or Behance before, this will be very familiar to you.
+[DevMo](http://gonebal.pythonanywhere.com/)
+
+# Introduction
+
+DevMo is like [BevMo](https://www.bevmo.com/), but Dev stands for Developer.
+If you have used Dribble or Behance before, it will be very familiar to you.
+
+![preview](_screenshots/preview.gif?raw=true "Title")
 
 You can check it out by clicking on the [following link](http://gonebal.pythonanywhere.com/).
 
@@ -13,6 +18,7 @@ JavaScript, Python, Django etc.
 
 You are free to post your own projects and developments! Spend your time Wisely!
 
+### Main features
 
 Okay, so I have my directory templates with 6 HTML pages. Layout, Index(Main Feed),
 Register/Login together in register.HTML, Newpost(Create New Post), Publication,
@@ -32,4 +38,26 @@ publication by name in Title or in the description, Categories Filter, Add to
 favorites, Like post, Subscribe to other users.
 
 The Website is mobile-responsive through Media queries(@media).
-# devmo2
+
+# Getting Started
+
+First clone the repository from Github and switch to the new directory:
+
+    $ git clone https://github.com/GonEbal/devmo2.git
+    $ cd devmo2
+    
+Activate the virtualenv for your project.
+    
+Install project dependencies:
+
+    $ pip install -r requirements.txt
+    
+    
+Then simply apply the migrations:
+
+    $ python manage.py migrate
+    
+
+You can now run the development server:
+
+    $ python manage.py runserver
