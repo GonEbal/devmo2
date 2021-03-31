@@ -25,7 +25,7 @@ h1 {
 	font-family: 'Heebo', sans-serif;
 	font-style: normal;
 	font-weight: 800;
-	font-size: 48px;
+	font-size: 4vw;
 	line-height: 120.9%;
 	color: #353835;
 	margin-bottom: 30px;
@@ -46,7 +46,11 @@ h1 {
 	font-size: 22px;
 	background: #E4572E;
 	border-radius: 6px;
-	padding: 5px 25px;
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+	width: 90px;
+	height: 35px;
 }
 
 /* Main Elements Not Logged IN */
@@ -164,6 +168,9 @@ p {
 @media (min-width: 1200px) {
 	.projects {
   	grid-template-columns: repeat(3, minmax(30px, 1fr));
+	}
+	h1 {
+
 	}
 }
 

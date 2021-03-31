@@ -22,3 +22,7 @@ function showCategory(category) {
 		}
 	});
 }
+
+function toRegister() {
+  window.location.href = "/register";
+}
