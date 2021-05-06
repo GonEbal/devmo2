@@ -3,7 +3,7 @@
 # Introduction
 
 DevMo is like [BevMo](https://www.bevmo.com/), but Dev stands for Developer.
-If you have used Dribble or Behance before, it will be very familiar to you.
+If you have used Dribble or Behance before, it will be very familiar to you!
 
 ![preview](_screenshots/preview2.gif?raw=true "Title")
 
